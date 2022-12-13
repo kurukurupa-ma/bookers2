@@ -1,0 +1,44 @@
+      
+      <div class="cotainer px-5 px-sm-0">
+         <% if @book.errors.any? %>
+         <%= @book.errors.count %>errors prohibited this obj from being saved:
+         <ul>
+          <% @book.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>  
+        <div class="row">
+          <div class="col-md-3">
+          <h2>User info</h2>
+          <%= image_tag user.get_profile_image(100,100) %>
+         <table class="table table-striped">
+          <tbody>
+             <tr></tr>
+             <tr>
+               <th>name</th>
+               <th><%= user.name %></th>
+             </tr>
+            <tr>
+              <th></th>
+              <th><%= user.introduction %></th>
+              <th></th>
+            </tr>
+          </tbody>
+        </table>
+          <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
+          <i class="fas fa-user-cog"></i>
+          <% end %>
+        <h2 class="mt-3">New book</h2>
+        
+        <%= form_with model: Book.new, url: '/books', method: :post  do |f| %>
+        <label>Title</label><br>
+          <%= f.text_field :title %>
+        	
+          <label>Opinion</hlabel><br>
+          <%= f.text_area :body %><br>
+          
+          
+          <%= f.submit 'Create Book', class: "btn btn-success" %>
+        <% end %>
+        </div>
