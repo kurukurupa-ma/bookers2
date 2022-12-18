@@ -27,7 +27,7 @@ class BooksController < ApplicationController
   def show
      @book=Book.find(params[:id])
      @book_new= Book.new
-     @user= current_user
+     @user= @book.user
   end
 
 
@@ -37,10 +37,9 @@ class BooksController < ApplicationController
     @book.update(book_params)
     if @book.save
       flash[:notice] = "You have updated book successfully."
-    redirect_to book_path(@book.id)
+      redirect_to book_path(@book.id)
     else
-      flash[:alret] = "投稿に失敗しました。"
-    render :new
+      render :edit
     end
   end 
   

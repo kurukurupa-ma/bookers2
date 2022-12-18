@@ -1,5 +1,5 @@
-      
-      <div class="cotainer px-5 px-sm-0">
+      <p id="notice"></p>
+      <div class="container px-5 px-sm-0">
          <% if @book.errors.any? %>
          <%= @book.errors.count %>errors prohibited this obj from being saved:
          <ul>
@@ -20,7 +20,7 @@
                <th><%= user.name %></th>
              </tr>
             <tr>
-              <th></th>
+              <th>introduction</th>
               <th><%= user.introduction %></th>
               <th></th>
             </tr>
@@ -41,4 +41,4 @@
           
           <%= f.submit 'Create Book', class: "btn btn-success" %>
         <% end %>
-        </div>
+     </div>

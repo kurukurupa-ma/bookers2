@@ -3,14 +3,14 @@
       <div class="col-md-8 offset-md-1">
           <h2>Books</h2>
           <table class="table table-hover table-inverse">
-            <therd>
+            <thead>
               <tr>
                 <th></th>
                 <th>Title</th>
                 <th>Opinion</th>
                 <th colspan="3"></th>
               </tr>
-            </therd>
+            </thead>
           <% @books.each do |book| %>
             <tbody>
               <tr>
@@ -19,11 +19,8 @@
                 <% end %></td>
                 <td><%= link_to book.title, book_path(book.id ) %></td>
                 <td><%= book.body %></td>
-              
-                
               </tr>    
-      　<% end %>
-              
+            <% end %>
             </tbody>
           </table>
       </div>
